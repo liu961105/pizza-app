@@ -11,15 +11,36 @@ import Contact from '../component/about/Contact'
 import History from '../component/about/History'
 import Delivery from '../component/about/Delivery'
 import OrderingGuide from '../component/about/OrderingGuide'
-export default [
-    { path: "/", name: "homeLink", component: Home },
+//三级路由
+import Phone from '../component/about/contact/Phone'
+import PersonName from '../component/about/contact/PersonName'
+export const routes = [{
+        path: "/",
+        name: "homeLink",
+        components: {
+            default: Home,
+            "orderingGuide": OrderingGuide,
+            "delivery": Delivery,
+            "history": History
+        }
+    },
     { path: "/menu", component: Menu },
     { path: "/admin", component: Admin },
     {
         path: "/about",
+        redirect: "/about/contact",
         component: About,
-        children: [
-            { path: "/about/contact", name: "contactLink", component: Contact },
+        children: [{
+                path: "/about/contact",
+                name: "contactLink",
+                redirect: "/phone",
+                component: Contact,
+                children: [
+                    { path: '/phone', name: "phoneNumber", component: Phone },
+                    { path: '/personname', name: "personName", component: PersonName }
+
+                ]
+            },
             { path: "/about/history", name: "historyLink", component: History },
             { path: "/about/delivery", name: "deliveryLink", component: Delivery },
             { path: "/about/orderingGuide", name: "orderingGuideLink", component: OrderingGuide },

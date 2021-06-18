@@ -1,17 +1,16 @@
 <template>
-  <div>
-    <h1>Admin</h1>
-  </div>
+<h1>LZN</h1>
 </template>
 
 <script>
 export default {
-  data() {
+  data () {
     return {
-    };
-  },
-};
+    }
+  }
+}
 </script>
 
 <style  scoped>
+
 </style>
