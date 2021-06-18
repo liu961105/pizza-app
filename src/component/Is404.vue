@@ -1,5 +1,5 @@
 <template>
     <div>
-        MENU
+        <h1>404</h1>
     </div>
-</templatMENUe>
+</template>
